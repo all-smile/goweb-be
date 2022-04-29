@@ -12,22 +12,25 @@
 <!--    <button type="submit">提交</button>-->
 <!--</form>-->
 <form>
-    <input type="file" name="file" id="file">
+    <input type="file" name="file" id="upload_file">
     <br>
-    <button type="button" id="upload_file">提交</button>
+    <button type="button" id="sub_btn">提交</button>
 </form>
 <script src="/static/js/jquery-3.4.1.js"></script>
 <script>
-    var upload_file = document.getElementById("upload_file")
-    upload_file.onclick = function () {
-        var file = document.getElementById("file").files
+    var sub_btn = document.getElementById("sub_btn")
+    sub_btn.onclick = function () {
+        var file = document.getElementById("upload_file").files
         console.log(file)
+        var formData = new FormData()
+        formData.append('file', file[0])
+        console.log(formData)
         $.ajax({
             url: "/upload_ajax",
             method: "POST",
-            data: {
-
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function (data) {
                 alert(data)
             },

@@ -30,5 +30,11 @@ func (u *UploadController) Post() {
 	if err != nil {
 		fmt.Println("保存失败", err)
 	}
-	u.Ctx.WriteString("ok")
+	//u.Ctx.WriteString("ok")
+	res := map[string]interface{}{
+		"code": 200,
+		"msg":  "上传成功",
+	}
+	u.Data["json"] = res
+	u.ServeJSON()
 }

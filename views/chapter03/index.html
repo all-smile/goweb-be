@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法01</title>
+</head>
+<body>
+<div>
+    {{.name}}
+    <ul>
+        {{range $k, $v := .arr}}
+        <li>{{$k}}: {{$v}}{{$.arr}}{{$.name}}</li>
+        {{end}}
+    </ul>
+</div>
+</body>
+</html>
