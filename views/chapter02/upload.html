@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+这是文件上传页面
+<!--<form action="/upload" method="post" enctype="multipart/form-data">-->
+<!--    <input type="file" name="file">-->
+<!--    <br>-->
+<!--    <button type="submit">提交</button>-->
+<!--</form>-->
+<form>
+    <input type="file" name="file" id="file">
+    <br>
+    <button type="button" id="upload_file">提交</button>
+</form>
+<script src="/static/js/jquery-3.4.1.js"></script>
+<script>
+    var upload_file = document.getElementById("upload_file")
+    upload_file.onclick = function () {
+        var file = document.getElementById("file").files
+        console.log(file)
+        $.ajax({
+            url: "/upload_ajax",
+            method: "POST",
+            data: {
+
+            },
+            success: function (data) {
+                alert(data)
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    }
+</script>
+</body>
+</html>

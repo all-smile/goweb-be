@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/public.css">
+</head>
+<body>
+<div class="main">
+    <h3>
+        这是index.html
+    </h3>
+    <ul>
+        <li>{{.Website}}</li>
+        <li>{{.Email}}</li>
+        <li>{{.user.Id}}</li>
+        <li>{{.user.Name}}</li>
+        <li>{{.user.Age}}</li>
+    </ul>
+    {{range $k,$v := .arr }}
+        k:{{$k}}, v:{{$v}}
+    {{end}}
+    <br>数组：
+    {{range .arr}}
+        {{.}}
+    {{end}}
+    <br>数组结构体：
+    {{range .users}}
+        <div>
+            {{.Id}}
+            {{.Name}}
+            {{.Age}}
+        </div>
+    {{end}}
+    <br>map：
+    {{.map_data.name}}
+    {{.map_data.author}}
+    {{.map_data.age}}
+    <br>map结构体：
+    {{.map_struct.JS.Name}}
+    {{.map_struct.TS.Name}}
+    <br>切片：
+    {{range .slice}}
+        {{.}}
+    {{end}}
+</div>
+</body>
+</html>

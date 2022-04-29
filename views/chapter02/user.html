@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+User: {{.id}}
+<!--<form action="add_user" method="post">-->
+<!--    用户名：<input type="text" name="user_name">-->
+<!--    密码：<input type="password" name="password">-->
+<!--    <button type="submit">提交</button>-->
+<!--</form>-->
+
+<form>
+    用户名：<input type="text" name="user_name" id="user_name">
+    密码：<input type="password" name="password" id="password">
+    <button id="submitbtn">提交</button>
+</form>
+<script src="/static/js/jquery-3.4.1.js"></script>
+<script>
+    var submitbtn = document.getElementById("submitbtn")
+    submitbtn.onclick= function () {
+
+        var user_name = document.getElementById("user_name").value
+        var password = document.getElementById("password").value
+        $.ajax({
+            url: "/add_user_ajax",
+            type: "POST",
+            data: {
+                user_name,
+                password
+            },
+            success: function (data) {
+                console.log(user_name+password)
+                console.log(data)
+                if (data.code === 200) {
+                    alert(data.msg)
+                } else {
+                    alert("添加失败")
+                }
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    }
+</script>
+</body>
+</html>
