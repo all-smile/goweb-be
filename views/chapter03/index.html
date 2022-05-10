@@ -12,6 +12,28 @@
         <li>{{$k}}: {{$v}}{{$.arr}}{{$.name}}</li>
         {{end}}
     </ul>
+    <div>
+        {{"xiao"}}
+    </div>
+    <h3>
+        {{`xiao`}}
+    </h3>
+    {{"<td></td>"}}
+    {{`<td></td>`}}
+    {{`<p>这是一个段落</p>`}}
+    <br>
+    {{.html}}
+    {{'a'}}
+    <br>
+    {{print nil}}
+    <br>
+    {{if gt 18 19}}
+        18大于19
+    {{else}}
+        18小于19
+    {{end}}
+    <br>
+    {{template "chapter03/test_temp.html"}}
 </div>
 </body>
 </html>
