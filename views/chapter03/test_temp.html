@@ -6,6 +6,14 @@
 </head>
 <body>
 这是 test_temp 页面
-用户名： {{.}}
+用户名： {{.username}}
+<br>-------and
+{{and .X .Y .Z}}
+<br>-------or
+{{or .X .Y .Z}}
+<br>-------arr index
+{{index .arr 0}}
+<br>-------mapdata
+{{index .mapdata "name"}}
 </body>
 </html>
